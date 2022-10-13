@@ -1,0 +1,14 @@
+sep = ;
+duration, ns;size;type;message
+33200;209;vector;char;
+62400;209;deque;char;
+107100;209;list;char;
+8169500;10000;vector;int;
+4268900;10000;deque;int;
+12871200;10000;list;int;
+2031100;10000;vector;double;
+2659400;10000;deque;double;
+4189800;10000;list;double;
+10723500;11242;vector;string;
+13553100;11242;deque;string;
+13945900;11242;list;string;
