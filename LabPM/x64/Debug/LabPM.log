@@ -1,10 +1,7 @@
 ﻿  GenTests.cc
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(69,52): warning C4018: '<': signed/unsigned mismatch
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(89,52): warning C4018: '<': signed/unsigned mismatch
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(91,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(112,52): warning C4018: '<': signed/unsigned mismatch
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(133,52): warning C4018: '<': signed/unsigned mismatch
-C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\LabPM\GenTests.cc(178,20): warning C4018: '<': signed/unsigned mismatch
-  TimeLogger.cc
-  Generating Code...
-  LabPM.vcxproj -> C:\Users\kosty\Desktop\ШАКАЛАДКА\прога\C++\Проекты\LabPM\x64\Debug\LabPM.exe
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(77,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(95,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(97,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(116,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(135,46): warning C4018: '<': signed/unsigned mismatch
+  LabPM.vcxproj -> C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\x64\Debug\LabPM.exe

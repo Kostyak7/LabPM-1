@@ -1,11 +1,19 @@
 #include "GenTests.h"
 
-int gtest::GenTest::counter = 0;
+const std::string gtest::GenTest::char_folder = "char";
+const std::string gtest::GenTest::int_folder = "int";
+const std::string gtest::GenTest::double_folder = "double";
+const std::string gtest::GenTest::str_folder = "string";
+
 const int gtest::GenTest::start_size = 10000;
 const int gtest::GenTest::step = 10000;
 
-std::string gtest::GenTest::filename(int num) {
-	return "test/test_" + std::to_string(num) + ".txt";
+std::string gtest::GenTest::folderpath(const std::string& folder_path, const int& num) {
+	return "test/" + folder_path + "/" + filename(num);
+}
+
+std::string gtest::GenTest::filename(const int& num) {
+	return "test_" + std::to_string(num) + ".txt";
 }
 
 std::string gtest::GenTest::rand_string() {
@@ -66,13 +74,12 @@ void gtest::GenTest::close_file() {
 
 void gtest::GenTest::gen_char_tests() {
 	int num_gen_files = 0;
-	for (int num = counter, amount_ = start_size; num < counter + _char_tests_; ++num, amount_ += step) {
-		if (open_file(filename(num))) {
+	for (int num = 0, amount_ = start_size; num < _char_tests_; ++num, amount_ += step) {
+		if (open_file(folderpath(char_folder, num))) {
 			char c = char(rand() % 256);
 			for (int i = 0; i < amount_; ++i, c = char(rand() % 256)) {
 				if (!(fin << c)) {
 					std::cout << "gen_char_tests: something went wrong!\n";
-					counter += num;
 					close_file();
 					return;
 				}
@@ -81,20 +88,18 @@ void gtest::GenTest::gen_char_tests() {
 			++num_gen_files;
 		}
 	}
-	counter += _char_tests_;
 	std::cout << "Generated " << num_gen_files << " files of char test\n";
 }
 void gtest::GenTest::gen_int_tests() {
 	int num_gen_files = 0;
-	for (int num = counter, amount_ = start_size; num < counter + _int_tests_; ++num, amount_ += step) {
-		if (open_file(filename(num))) {
+	for (int num = 0, amount_ = start_size; num < _int_tests_; ++num, amount_ += step) {
+		if (open_file(folderpath(int_folder, num))) {
 			int diap = pow(256, sizeof(int));
 			int c = rand() % diap;
 			for (int i = 0; i < amount_; ++i, c = rand() % diap) {
 				if (!(fin << c << "\n")) {
 					if (!(rand() % step)) fin << " \n";
 					std::cout << "gen_int_tests: something went wrong!\n";
-					counter += num;
 					close_file();
 					return;
 				}
@@ -103,20 +108,18 @@ void gtest::GenTest::gen_int_tests() {
 			++num_gen_files;
 		}
 	}
-	counter += _int_tests_;
 	std::cout << "Generated " << num_gen_files << " files of int test\n";
 }
 
 void gtest::GenTest::gen_double_tests() {
 	int num_gen_files = 0;
-	for (int num = counter, amount_ = start_size; num < counter + _double_tests_; ++num, amount_ += step) {
-		if (open_file(filename(num))) {
+	for (int num = 0, amount_ = start_size; num < _double_tests_; ++num, amount_ += step) {
+		if (open_file(folderpath(double_folder, num))) {
 			double c = rand() % int(pow(256, sizeof(int))) / double(1 + rand() % int(pow(256, sizeof(int))));
 			for (int i = 0; i < amount_; ++i, c = rand() % int(pow(256,sizeof(int))) / double(1 + rand() % int(pow(256, sizeof(int))))) {
 				if (!(fin << c << "\n")) {
 					if (!(rand() % step)) fin << " \n";
 					std::cout << "gen_double_tests: something went wrong!\n";
-					counter += num;
 					close_file();
 					return;
 				}
@@ -125,19 +128,17 @@ void gtest::GenTest::gen_double_tests() {
 			++num_gen_files;
 		}
 	}
-	counter += _double_tests_;
 	std::cout << "Generated " << num_gen_files << " files of double test\n";
 }
 void gtest::GenTest::gen_str_tests() {
 	int num_gen_files = 0;
-	for (int num = counter, amount_ = start_size; num < counter + _string_tests_; ++num, amount_ += step) {
-		if (open_file(filename(num))) {
+	for (int num = 0, amount_ = start_size; num < _string_tests_; ++num, amount_ += step) {
+		if (open_file(folderpath(str_folder, num))) {
 			std::string str_ = rand_string();
 			for (int i = 0; i < amount_; ++i, str_ = rand_string()) {
 				if (!(fin << str_ << "\n")) {
 					if (!(rand() % step)) fin << " \n";
 					std::cout << "gen_str_tests: something went wrong!\n";
-					counter += num;
 					close_file();
 					return;
 				}
@@ -146,7 +147,6 @@ void gtest::GenTest::gen_str_tests() {
 			++num_gen_files;
 		}
 	}
-	counter += _string_tests_;
 	std::cout << "Generated " << num_gen_files << " files of string test\n";
 }
 
@@ -164,10 +164,12 @@ unsigned int gtest::GenTest::get_num_str() const {
 	return _string_tests_;
 }
 
-int gtest::GenTest::get_counter() const {
-	return counter;
+void gtest::GenTest::remove_test_files(const std::string& folder_, int& test_files) {
+	int num = 0;
+	while (std::ifstream(folderpath(folder_, num))) {
+		test_files += (std::remove(folderpath(folder_, num++).c_str())) ? 0 : 1;
+	}
 }
-
 
 void gtest::GenTest::remove_files(bool is_remove_statistics)
 /*
@@ -175,9 +177,10 @@ void gtest::GenTest::remove_files(bool is_remove_statistics)
 */
 {
 	int test_files = 0;
-	for (int i = 0; i < _char_tests_ + _int_tests_ + _double_tests_ + _string_tests_; ++i) {
-		test_files += (std::remove(filename(i).c_str()))? 0: 1;
-	}
+	remove_test_files(char_folder, test_files);
+	remove_test_files(int_folder, test_files);
+	remove_test_files(double_folder, test_files);
+	remove_test_files(str_folder, test_files);
 	std::cout << "Removed " << test_files << " test files\n";
 
 	if (is_remove_statistics) {

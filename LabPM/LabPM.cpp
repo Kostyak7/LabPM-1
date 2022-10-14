@@ -11,7 +11,7 @@ int main(){
     gentest->gen_tests();
 
     experiments::Test* test = new experiments::Test;
-    test->run(*gentest);
+    test->run();
 
     delete test;
     test = nullptr;

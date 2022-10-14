@@ -4,11 +4,11 @@ experiments::Test::Test() {
 
 }
 
-void experiments::Test::run(const gtest::GenTest& gentest_) {
-	start_char_test(gentest_);
-	start_int_test(gentest_);
-	start_double_test(gentest_);
-	start_str_test(gentest_);
+void experiments::Test::run() {
+	start_char_test();
+	start_int_test();
+	start_double_test();
+	start_str_test();
 }
 
 int experiments::Test::test_check(const int& result, const std::string& type_) {
@@ -17,14 +17,14 @@ int experiments::Test::test_check(const int& result, const std::string& type_) {
 	return result;
 }
 
-void experiments::Test::start_char_test(const gtest::GenTest& gentest_) {
+void experiments::Test::start_char_test() {
 	std::cout << "Testing char containers...\n";
 	int num_test = 0;
 
-	for (int num = 0; num < gentest_.get_num_char(); ++num) {
-		std::vector<char> vec = data::load_vector_char(gtest::GenTest::filename(num));
-		std::deque<char> deq = data::load_deque_char(gtest::GenTest::filename(num));
-		std::list<char> list_ = data::load_list_char(gtest::GenTest::filename(num));
+	for (int num = 0; std::ifstream(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num)); ++num) {
+		std::vector<char> vec = data::load_vector_char(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num));
+		std::deque<char> deq = data::load_deque_char(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num));
+		std::list<char> list_ = data::load_list_char(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num));
 
 		num_test += test_check(char_find_test(vec, deq, list_), "Find");
 		num_test += test_check(char_sort_test(vec, deq, list_), "Sort");
@@ -39,14 +39,14 @@ void experiments::Test::start_char_test(const gtest::GenTest& gentest_) {
 	}
 	else std::cout << "--Char tests success complete!--\n\n";
 }
-void experiments::Test::start_int_test(const gtest::GenTest& gentest_) {
+void experiments::Test::start_int_test() {
 	std::cout << "Testing int containers...\n";
 	int num_test = 0;
 
-	for (int num = gentest_.get_num_char(); num < gentest_.get_num_int() + gentest_.get_num_char(); ++num) {
-		std::vector<int> vec = data::load_vector_int(gtest::GenTest::filename(num));
-		std::deque<int> deq = data::load_deque_int(gtest::GenTest::filename(num));
-		std::list<int> list_ = data::load_list_int(gtest::GenTest::filename(num));
+	for (int num = 0; std::ifstream(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num)); ++num) {
+		std::vector<int> vec = data::load_vector_int(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num));
+		std::deque<int> deq = data::load_deque_int(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num));
+		std::list<int> list_ = data::load_list_int(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num));
 
 		num_test += test_check(int_find_test(vec, deq, list_), "Find");
 		num_test += test_check(int_sort_test(vec, deq, list_), "Sort");
@@ -61,14 +61,14 @@ void experiments::Test::start_int_test(const gtest::GenTest& gentest_) {
 	}
 	else std::cout << "--Int tests success complete!--\n\n";
 }
-void experiments::Test::start_double_test(const gtest::GenTest& gentest_) {
+void experiments::Test::start_double_test() {
 	std::cout << "Testing doubles containers...\n";
 	int num_test = 0;
 
-	for (int num = gentest_.get_num_int() + gentest_.get_num_char(); num < gentest_.get_num_double() + gentest_.get_num_int() + gentest_.get_num_char(); ++num) {
-		std::vector<double> vec = data::load_vector_double(gtest::GenTest::filename(num));
-		std::deque<double> deq = data::load_deque_double(gtest::GenTest::filename(num));
-		std::list<double> list_ = data::load_list_double(gtest::GenTest::filename(num));
+	for (int num = 0; std::ifstream(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num)); ++num) {
+		std::vector<double> vec = data::load_vector_double(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num));
+		std::deque<double> deq = data::load_deque_double(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num));
+		std::list<double> list_ = data::load_list_double(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num));
 
 		num_test += test_check(double_find_test(vec, deq, list_), "Find");
 		num_test += test_check(double_sort_test(vec, deq, list_), "Sort");
@@ -83,14 +83,14 @@ void experiments::Test::start_double_test(const gtest::GenTest& gentest_) {
 	}
 	else std::cout << "--Double tests success complete!--\n\n";
 }
-void experiments::Test::start_str_test(const gtest::GenTest& gentest_) {
+void experiments::Test::start_str_test() {
 	std::cout << "Testing string containers...\n";
 	int num_test = 0;
 
-	for (int num = gentest_.get_num_double() + gentest_.get_num_int() + gentest_.get_num_char(); num < gentest_.get_num_double() + gentest_.get_num_int() + gentest_.get_num_char() + gentest_.get_num_str(); ++num) {
-		std::vector<std::string> vec = data::load_vector_string(gtest::GenTest::filename(num));
-		std::deque<std::string> deq = data::load_deque_string(gtest::GenTest::filename(num));
-		std::list<std::string> list_ = data::load_list_string(gtest::GenTest::filename(num));
+	for (int num = 0; std::ifstream(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num)); ++num) {
+		std::vector<std::string> vec = data::load_vector_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
+		std::deque<std::string> deq = data::load_deque_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
+		std::list<std::string> list_ = data::load_list_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
 
 		num_test += test_check(str_find_test(vec, deq, list_), "Find");
 		num_test += test_check(str_sort_test(vec, deq, list_), "Sort");

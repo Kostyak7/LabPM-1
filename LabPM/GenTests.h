@@ -12,7 +12,6 @@
 namespace gtest {
 	class GenTest {
 	private:
-		static int counter;
 		static const int start_size;
 		static const int step;
 		static std::string rand_string();
@@ -27,8 +26,16 @@ namespace gtest {
 		void gen_double_tests();
 		void gen_str_tests();
 
+		static void remove_test_files(const std::string& folder_, int& test_files);
+
 	public:
-		static std::string filename(int num);
+		static const std::string char_folder;
+		static const std::string int_folder;
+		static const std::string double_folder;
+		static const std::string str_folder;
+
+		static std::string folderpath(const std::string& folder_path, const int& num);
+		static std::string filename(const int& num);
 
 		GenTest();
 		GenTest& char_tests(const unsigned int& num_tests);
@@ -42,8 +49,6 @@ namespace gtest {
 		unsigned int get_num_int() const;
 		unsigned int get_num_double() const;
 		unsigned int get_num_str() const;
-
-		int get_counter() const;
 
 		void remove_files(bool is_remove_statistics = 0);
 	};

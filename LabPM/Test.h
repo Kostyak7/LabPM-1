@@ -50,11 +50,11 @@ namespace experiments {
 	public:
 		Test();
 
-		void run(const gtest::GenTest& gentest_);
-		void start_char_test(const gtest::GenTest& gentest_);
-		void start_int_test(const gtest::GenTest& gentest_);
-		void start_double_test(const gtest::GenTest& gentest_);
-		void start_str_test(const gtest::GenTest& gentest_);
+		void run();
+		void start_char_test();
+		void start_int_test();
+		void start_double_test();
+		void start_str_test();
 		
 	};
 
