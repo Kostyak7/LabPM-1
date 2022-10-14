@@ -1,7 +1,5 @@
 ﻿#include "GenTests.h"
 #include "Test.h"
-#include "TimeLogger.h"
-
 
 
 int main(){
@@ -16,7 +14,6 @@ int main(){
     delete test;
     test = nullptr;
 
-    //gentest->remove_files();
     delete gentest;
     gentest = nullptr;
 

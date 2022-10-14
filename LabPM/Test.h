@@ -4,9 +4,6 @@
 #include <vector>
 #include <deque>
 #include <list>
-#include <string>
-#include <cctype>
-#include <algorithm>
 
 #include "TimeLogger.h"
 #include "LabFunctions.h"
@@ -55,7 +52,6 @@ namespace experiments {
 		void start_int_test();
 		void start_double_test();
 		void start_str_test();
-		
 	};
 
 }
