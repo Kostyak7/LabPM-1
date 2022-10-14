@@ -1,5 +1,6 @@
 ﻿#include "GenTests.h"
 #include "Test.h"
+#include "TimeLogger.h"
 
 
 int main(){

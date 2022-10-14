@@ -43,6 +43,11 @@ tlog::TimeLogger::TimeLogger(const std::string& path_name)
 	db.create_table(path_name);
 }
 
+tlog::TimeLogger::TimeLogger()
+	:start_(std::chrono::high_resolution_clock::now())
+{
+	if (!db.is_open()) db.open_db(db_name);
+}
 
 tlog::TimeLogger::TimeLogger(const std::string& path_name, bool& is_open)
 	:start_(std::chrono::high_resolution_clock::now()),
@@ -85,22 +90,4 @@ void tlog::TimeLogger::log_duration(int size_, const std::string& type_, const s
 	}
 	db.insert(cur_name, duration, size_, type_, message_);
 	start_ += std::chrono::high_resolution_clock::now() - stop_;
-}
-
-void tlog::TimeLogger::clear_info() {
-	int stat_files = 0;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::find_name).c_str())) ? 0 : 1;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::sort_name).c_str())) ? 0 : 1;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::popF_name).c_str())) ? 0 : 1;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::popB_name).c_str())) ? 0 : 1;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::pushF_name).c_str())) ? 0 : 1;
-	stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::pushB_name).c_str())) ? 0 : 1;
-	std::cout << "Removed " << stat_files << " statistics files\n";
-	db.clear_table(tlog::TimeLogger::find_name);
-	db.clear_table(tlog::TimeLogger::sort_name);
-	db.clear_table(tlog::TimeLogger::popF_name);
-	db.clear_table(tlog::TimeLogger::popB_name);
-	db.clear_table(tlog::TimeLogger::pushF_name);
-	db.clear_table(tlog::TimeLogger::pushB_name);
-	std::cout << "DataBase: " << db_name << " truncated tables\n";
 }

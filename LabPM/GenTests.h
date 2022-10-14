@@ -8,6 +8,7 @@
 #include <cstdio>
 
 #include "TimeLogger.h"
+#include "sqlDataBase.h"
 
 namespace gtest {
 	class GenTest {

@@ -20,7 +20,7 @@ std::string gtest::GenTest::rand_string() {
 	int size_ = rand() % 21 + 20;
 	std::string str_(size_, ' ');
 	for (char& c : str_) {
-		c = char(rand() % 223 + 32);
+		c = char(rand() % 94 + 33);
 	}
 	return str_;
 }
@@ -76,8 +76,8 @@ void gtest::GenTest::gen_char_tests() {
 	int num_gen_files = 0;
 	for (int num = 0, amount_ = start_size; num < _char_tests_; ++num, amount_ += step) {
 		if (open_file(folderpath(char_folder, num))) {
-			char c = char(rand() % 256);
-			for (int i = 0; i < amount_; ++i, c = char(rand() % 256)) {
+			char c = char(rand() % 94 + 33);
+			for (int i = 0; i < amount_; ++i, c = char(rand() % 94 + 33)) {
 				if (!(fin << c)) {
 					std::cout << "gen_char_tests: something went wrong!\n";
 					close_file();
@@ -137,7 +137,6 @@ void gtest::GenTest::gen_str_tests() {
 			std::string str_ = rand_string();
 			for (int i = 0; i < amount_; ++i, str_ = rand_string()) {
 				if (!(fin << str_ << "\n")) {
-					if (!(rand() % step)) fin << " \n";
 					std::cout << "gen_str_tests: something went wrong!\n";
 					close_file();
 					return;
@@ -184,8 +183,23 @@ void gtest::GenTest::remove_files(bool is_remove_statistics)
 	std::cout << "Removed " << test_files << " test files\n";
 
 	if (is_remove_statistics) {
-		tlog::TimeLogger emptyTL(tlog::TimeLogger::find_name);
-		emptyTL.clear_info();
+		int stat_files = 0;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::find_name).c_str())) ? 0 : 1;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::sort_name).c_str())) ? 0 : 1;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::popF_name).c_str())) ? 0 : 1;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::popB_name).c_str())) ? 0 : 1;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::pushF_name).c_str())) ? 0 : 1;
+		stat_files += (std::remove(tlog::TimeLogger::csv(tlog::TimeLogger::pushB_name).c_str())) ? 0 : 1;
+		std::cout << "Removed " << stat_files << " statistics files\n";
+		sqll::SQLdb to_clear;
+		to_clear.open_db(tlog::TimeLogger::db_name);
+		to_clear.clear_table(tlog::TimeLogger::find_name);
+		to_clear.clear_table(tlog::TimeLogger::sort_name);
+		to_clear.clear_table(tlog::TimeLogger::popF_name);
+		to_clear.clear_table(tlog::TimeLogger::popB_name);
+		to_clear.clear_table(tlog::TimeLogger::pushF_name);
+		to_clear.clear_table(tlog::TimeLogger::pushB_name);
+		std::cout << "DataBase: " << tlog::TimeLogger::db_name << " truncated tables\n";
 	}
 	std::cout << "\n";
 }

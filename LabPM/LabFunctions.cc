@@ -9,6 +9,7 @@ std::vector<char> data::load_vector_char(const std::string& path_file) {
 	}
 	for (char el; !fout.eof();) {
 		if (fout >> el) vec.push_back(el);
+		//std::cout << el << "\n";
 	}
 	fout.close();
 	return vec;

@@ -32,7 +32,8 @@ namespace tlog {
 		static const std::string popB_name;
 		static const std::string pushF_name;
 		static const std::string pushB_name;
-
+		
+		TimeLogger();
 		TimeLogger(const std::string& path_name);
 		TimeLogger(const std::string& path_name, bool& is_open);
 
@@ -40,7 +41,6 @@ namespace tlog {
 		void log_duration(int size_, const std::string& type_);
 		void log_duration(int size_, const std::string& type_, const std::string& message_);
 
-		void clear_info();
 		~TimeLogger();
 	};
 }

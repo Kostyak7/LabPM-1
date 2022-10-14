@@ -5,7 +5,7 @@ C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(97,1
 C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(116,46): warning C4018: '<': signed/unsigned mismatch
 C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(135,46): warning C4018: '<': signed/unsigned mismatch
   LabPM.cpp
-C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\LabPM.cpp(6,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\LabPM.cpp(7,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Test.cc
 C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(117,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(121,12): warning C4834: discarding return value of function with 'nodiscard' attribute
