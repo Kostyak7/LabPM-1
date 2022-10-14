@@ -30,6 +30,12 @@
     <ClCompile Include="Test.cc">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="sqlDataBase.cc">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite3.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GenTests.h">
@@ -44,5 +50,11 @@
     <ClInclude Include="Test.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="sqlDataBase.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

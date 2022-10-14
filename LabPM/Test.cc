@@ -112,7 +112,7 @@ void experiments::Test::start_str_test() {
 
 int experiments::Test::char_find_test(const std::vector<char>& vec, const std::deque<char>& deq, const	std::list<char>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tfind(tlog::TimeLogger::find_FileName, result);
+	tlog::TimeLogger tfind(tlog::TimeLogger::find_name, result);
 	if (!result) return 1;
 	int step_ = (vec.size() / 10) ? vec.size() / 10 : 1;
 	//Vector
@@ -137,7 +137,7 @@ int experiments::Test::char_find_test(const std::vector<char>& vec, const std::d
 }
 int experiments::Test::char_sort_test(std::vector<char> vec, std::deque<char> deq, std::list<char> list_) {
 	bool result = 0;
-	tlog::TimeLogger tsort(tlog::TimeLogger::sort_FileName, result);
+	tlog::TimeLogger tsort(tlog::TimeLogger::sort_name, result);
 	if (!result) return 1;
 	//Vector
 	tsort.reset_start();
@@ -155,7 +155,7 @@ int experiments::Test::char_sort_test(std::vector<char> vec, std::deque<char> de
 }
 int experiments::Test::char_popF_test(std::vector<char> vec,std::deque<char> deq, std::list<char> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_FileName, result);
+	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -180,7 +180,7 @@ int experiments::Test::char_popF_test(std::vector<char> vec,std::deque<char> deq
 }
 int experiments::Test::char_popB_test(std::vector<char> vec, std::deque<char> deq, std::list<char> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_FileName, result);
+	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -205,7 +205,7 @@ int experiments::Test::char_popB_test(std::vector<char> vec, std::deque<char> de
 }
 int experiments::Test::char_pushF_test(const std::vector<char>& vec, const  std::deque<char>& deq, const  std::list<char>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_FileName, result);
+	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<char> vec_vs;
@@ -247,7 +247,7 @@ int experiments::Test::char_pushF_test(const std::vector<char>& vec, const  std:
 }
 int experiments::Test::char_pushB_test(const std::vector<char>& vec, const  std::deque<char>& deq, const  std::list<char>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_FileName, result);
+	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<char> vec_vs;
@@ -282,7 +282,7 @@ int experiments::Test::char_pushB_test(const std::vector<char>& vec, const  std:
 
 int experiments::Test::int_find_test(const std::vector<int>& vec, const std::deque<int>& deq, const	std::list<int>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tfind(tlog::TimeLogger::find_FileName, result);
+	tlog::TimeLogger tfind(tlog::TimeLogger::find_name, result);
 	if (!result) return 1;
 	int step_ = (vec.size() / 10) ? vec.size() / 10 : 1;
 	//Vector
@@ -307,7 +307,7 @@ int experiments::Test::int_find_test(const std::vector<int>& vec, const std::deq
 }
 int experiments::Test::int_sort_test(std::vector<int> vec, std::deque<int> deq, std::list<int> list_) {
 	bool result = 0;
-	tlog::TimeLogger tsort(tlog::TimeLogger::sort_FileName, result);
+	tlog::TimeLogger tsort(tlog::TimeLogger::sort_name, result);
 	if (!result) return 1;
 	//Vector
 	tsort.reset_start();
@@ -325,7 +325,7 @@ int experiments::Test::int_sort_test(std::vector<int> vec, std::deque<int> deq, 
 }
 int experiments::Test::int_popF_test(std::vector<int> vec, std::deque<int> deq, std::list<int> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_FileName, result);
+	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -350,7 +350,7 @@ int experiments::Test::int_popF_test(std::vector<int> vec, std::deque<int> deq, 
 }
 int experiments::Test::int_popB_test(std::vector<int> vec, std::deque<int> deq, std::list<int> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_FileName, result);
+	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -375,7 +375,7 @@ int experiments::Test::int_popB_test(std::vector<int> vec, std::deque<int> deq, 
 }
 int experiments::Test::int_pushF_test(const std::vector<int>& vec, const  std::deque<int>& deq, const  std::list<int>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_FileName, result);
+	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<int> vec_vs;
@@ -417,7 +417,7 @@ int experiments::Test::int_pushF_test(const std::vector<int>& vec, const  std::d
 }
 int experiments::Test::int_pushB_test(const std::vector<int>& vec, const  std::deque<int>& deq, const  std::list<int>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_FileName, result);
+	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<int> vec_vs;
@@ -452,7 +452,7 @@ int experiments::Test::int_pushB_test(const std::vector<int>& vec, const  std::d
 
 int experiments::Test::double_find_test(const std::vector<double>& vec, const std::deque<double>& deq, const std::list<double>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tfind(tlog::TimeLogger::find_FileName, result);
+	tlog::TimeLogger tfind(tlog::TimeLogger::find_name, result);
 	if (!result) return 1;
 	int step_ = (vec.size() / 10) ? vec.size()/ 10 : 1;
 	//Vector
@@ -477,7 +477,7 @@ int experiments::Test::double_find_test(const std::vector<double>& vec, const st
 }
 int experiments::Test::double_sort_test(std::vector<double> vec, std::deque<double> deq, std::list<double> list_) {
 	bool result = 0;
-	tlog::TimeLogger tsort(tlog::TimeLogger::sort_FileName, result);
+	tlog::TimeLogger tsort(tlog::TimeLogger::sort_name, result);
 	if (!result) return 1;
 	//Vector
 	tsort.reset_start();
@@ -495,7 +495,7 @@ int experiments::Test::double_sort_test(std::vector<double> vec, std::deque<doub
 }
 int experiments::Test::double_popF_test(std::vector<double> vec, std::deque<double> deq, std::list<double> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_FileName, result);
+	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -520,7 +520,7 @@ int experiments::Test::double_popF_test(std::vector<double> vec, std::deque<doub
 }
 int experiments::Test::double_popB_test(std::vector<double> vec, std::deque<double> deq, std::list<double> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_FileName, result);
+	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -545,7 +545,7 @@ int experiments::Test::double_popB_test(std::vector<double> vec, std::deque<doub
 }
 int experiments::Test::double_pushF_test(const std::vector<double>& vec, const  std::deque<double>& deq, const  std::list<double>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_FileName, result);
+	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<double> vec_vs;
@@ -587,7 +587,7 @@ int experiments::Test::double_pushF_test(const std::vector<double>& vec, const  
 }
 int experiments::Test::double_pushB_test(const std::vector<double>& vec, const  std::deque<double>& deq, const  std::list<double>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_FileName, result);
+	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<double> vec_vs;
@@ -622,7 +622,7 @@ int experiments::Test::double_pushB_test(const std::vector<double>& vec, const  
 
 int experiments::Test::str_find_test(const std::vector<std::string>& vec, const std::deque<std::string>& deq, const	std::list<std::string>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tfind(tlog::TimeLogger::find_FileName, result);
+	tlog::TimeLogger tfind(tlog::TimeLogger::find_name, result);
 	if (!result) return 1;
 	int step_ = (vec.size() / 10) ? vec.size() / 10 : 1;
 		//Vector
@@ -647,7 +647,7 @@ int experiments::Test::str_find_test(const std::vector<std::string>& vec, const 
 }
 int experiments::Test::str_sort_test(std::vector<std::string> vec, std::deque<std::string> deq, std::list<std::string> list_) {
 	bool result = 0;
-	tlog::TimeLogger tsort(tlog::TimeLogger::sort_FileName, result);
+	tlog::TimeLogger tsort(tlog::TimeLogger::sort_name, result);
 	if (!result) return 1;
 	//Vector
 	tsort.reset_start();
@@ -665,7 +665,7 @@ int experiments::Test::str_sort_test(std::vector<std::string> vec, std::deque<st
 }
 int experiments::Test::str_popF_test(std::vector<std::string> vec, std::deque<std::string> deq, std::list<std::string> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_FileName, result);
+	tlog::TimeLogger tpopF(tlog::TimeLogger::popF_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -690,7 +690,7 @@ int experiments::Test::str_popF_test(std::vector<std::string> vec, std::deque<st
 }
 int experiments::Test::str_popB_test(std::vector<std::string> vec, std::deque<std::string> deq, std::list<std::string> list_) {
 	bool result = 0;
-	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_FileName, result);
+	tlog::TimeLogger tpopB(tlog::TimeLogger::popB_name, result);
 	if (!result) return 1;
 	const int start_size = vec.size();
 	//Vector
@@ -715,7 +715,7 @@ int experiments::Test::str_popB_test(std::vector<std::string> vec, std::deque<st
 }
 int experiments::Test::str_pushF_test(const std::vector<std::string>& vec, const std::deque<std::string>& deq, const std::list<std::string>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_FileName, result);
+	tlog::TimeLogger tpushF(tlog::TimeLogger::pushF_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<std::string> vec_vs;
@@ -757,7 +757,7 @@ int experiments::Test::str_pushF_test(const std::vector<std::string>& vec, const
 }
 int experiments::Test::str_pushB_test(const std::vector<std::string>& vec, const  std::deque<std::string>& deq, const  std::list<std::string>& list_) {
 	bool result = 0;
-	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_FileName, result);
+	tlog::TimeLogger tpushB(tlog::TimeLogger::pushB_name, result);
 	if (!result) return 1;
 	//Vector
 	std::vector<std::string> vec_vs;

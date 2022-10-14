@@ -4,6 +4,7 @@
 
 int main(){
     srand(time(NULL));
+    tlog::TimeLogger::db_mode = 0;
 
     gtest::GenTest* gentest = new gtest::GenTest;
     gentest->gen_tests();

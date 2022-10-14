@@ -184,14 +184,8 @@ void gtest::GenTest::remove_files(bool is_remove_statistics)
 	std::cout << "Removed " << test_files << " test files\n";
 
 	if (is_remove_statistics) {
-		int stat_files = 0;
-		stat_files += (std::remove(tlog::TimeLogger::find_FileName.c_str())) ? 0 : 1;
-		stat_files += (std::remove(tlog::TimeLogger::sort_FileName.c_str())) ? 0 : 1;
-		stat_files += (std::remove(tlog::TimeLogger::popF_FileName.c_str())) ? 0 : 1;
-		stat_files += (std::remove(tlog::TimeLogger::popB_FileName.c_str())) ? 0 : 1;
-		stat_files += (std::remove(tlog::TimeLogger::pushF_FileName.c_str()) ? 0 : 1);
-		stat_files += (std::remove(tlog::TimeLogger::pushB_FileName.c_str())) ? 0 : 1;
-		std::cout << "Removed " << stat_files << " statistics files\n";
+		tlog::TimeLogger emptyTL(tlog::TimeLogger::find_name);
+		emptyTL.clear_info();
 	}
 	std::cout << "\n";
 }
