@@ -1,12 +1,46 @@
 #include "GenTests.h"
 
+/////////////////////////////MyStream///////////////////////////////////////////////////
+gtest::MyStream::MyStream() {
+
+}
+bool gtest::MyStream::open_file(const std::string& path_name) {
+	fin.open(path_name);
+	if (!fin.is_open()) {
+		std::cout << "File: " << path_name << " wasn`t opened!\n";
+		return false;
+	}
+	return true;
+}
+void gtest::MyStream::close_file() {
+	fin.close();
+}
+
+int gtest::MyStream::operator<<(const char& element) {
+	if (fin.is_open()) return !(fin << element);
+	return 0;
+}
+int gtest::MyStream::operator<<(const int& element) {
+	if (fin.is_open()) return !(fin << element);
+	return 0;
+}
+int gtest::MyStream::operator<<(const double& element) {
+	if (fin.is_open()) return !(fin << element);
+	return 0;
+}
+int gtest::MyStream::operator<<(const std::string& element) {
+	if (fin.is_open()) return !(fin << element);
+	return 0;
+}
+
+/////////////////////////////GenTest///////////////////////////////////////////
 const std::string gtest::GenTest::char_folder = "char";
 const std::string gtest::GenTest::int_folder = "int";
 const std::string gtest::GenTest::double_folder = "double";
 const std::string gtest::GenTest::str_folder = "string";
 
-const int gtest::GenTest::start_size = 10000;
-const int gtest::GenTest::step = 10000;
+const int gtest::GenTest::start_size = 1000;
+const int gtest::GenTest::step = 1000;
 
 std::string gtest::GenTest::folderpath(const std::string& folder_path, const int& num) {
 	return "test/" + folder_path + "/" + filename(num);
@@ -26,7 +60,7 @@ std::string gtest::GenTest::rand_string() {
 }
 
 gtest::GenTest::GenTest()
-	: _char_tests_(1), _int_tests_(1), _double_tests_(1), _string_tests_(1)
+	: _char_tests_(5), _int_tests_(5), _double_tests_(5), _string_tests_(5)
 {}
 
 gtest::GenTest& gtest::GenTest::char_tests(const unsigned int& num_tests) {
@@ -50,6 +84,7 @@ gtest::GenTest& gtest::GenTest::string_tests(const unsigned int& num_tests) {
 	return *this;
 }
 
+
 void gtest::GenTest::gen_tests() {
 	remove_files(1);
 	gen_char_tests();
@@ -59,32 +94,36 @@ void gtest::GenTest::gen_tests() {
 	std::cout << "End of test file generation\n\n";
 }
 
-bool gtest::GenTest::open_file(const std::string& path_name) {
-	fin.open(path_name);
-	if (!fin.is_open()) {
-		std::cout << "File: " << path_name << " wasn`t opened!\n";
-		return false;
-	}
-	return true;
+void gtest::GenTest::async_gen_tests() {
+	remove_files(1);
+
+	boost::thread_group* tgroup = new boost::thread_group;
+	tgroup->create_thread(boost::bind(&gtest::GenTest::gen_char_tests, this));
+	tgroup->create_thread(boost::bind(&gtest::GenTest::gen_int_tests, this));
+	tgroup->create_thread(boost::bind(&gtest::GenTest::gen_double_tests, this));
+	gen_str_tests();
+
+	tgroup->join_all();
+
+	delete tgroup;
+	tgroup = nullptr;
 }
 
-void gtest::GenTest::close_file() {
-	fin.close();
-}
 
 void gtest::GenTest::gen_char_tests() {
 	int num_gen_files = 0;
 	for (int num = 0, amount_ = start_size; num < _char_tests_; ++num, amount_ += step) {
-		if (open_file(folderpath(char_folder, num))) {
+		MyStream stream;
+		if (stream.open_file(folderpath(char_folder, num))) {
 			char c = char(rand() % 94 + 33);
 			for (int i = 0; i < amount_; ++i, c = char(rand() % 94 + 33)) {
-				if (!(fin << c)) {
+				if (stream << c) {
 					std::cout << "gen_char_tests: something went wrong!\n";
-					close_file();
+					stream.close_file();
 					return;
 				}
 			}
-			close_file();
+			stream.close_file();
 			++num_gen_files;
 		}
 	}
@@ -93,18 +132,19 @@ void gtest::GenTest::gen_char_tests() {
 void gtest::GenTest::gen_int_tests() {
 	int num_gen_files = 0;
 	for (int num = 0, amount_ = start_size; num < _int_tests_; ++num, amount_ += step) {
-		if (open_file(folderpath(int_folder, num))) {
+		MyStream stream;
+		if (stream.open_file(folderpath(int_folder, num))) {
 			int diap = pow(256, sizeof(int));
 			int c = rand() % diap;
 			for (int i = 0; i < amount_; ++i, c = rand() % diap) {
-				if (!(fin << c << "\n")) {
-					if (!(rand() % step)) fin << " \n";
+				if (stream << c && stream << "\n") {
+					if (!(rand() % step)) stream << " \n";
 					std::cout << "gen_int_tests: something went wrong!\n";
-					close_file();
+					stream.close_file();
 					return;
 				}
 			}
-			close_file();
+			stream.close_file();
 			++num_gen_files;
 		}
 	}
@@ -114,17 +154,18 @@ void gtest::GenTest::gen_int_tests() {
 void gtest::GenTest::gen_double_tests() {
 	int num_gen_files = 0;
 	for (int num = 0, amount_ = start_size; num < _double_tests_; ++num, amount_ += step) {
-		if (open_file(folderpath(double_folder, num))) {
+		MyStream stream;
+		if (stream.open_file(folderpath(double_folder, num))) {
 			double c = rand() % int(pow(256, sizeof(int))) / double(1 + rand() % int(pow(256, sizeof(int))));
 			for (int i = 0; i < amount_; ++i, c = rand() % int(pow(256,sizeof(int))) / double(1 + rand() % int(pow(256, sizeof(int))))) {
-				if (!(fin << c << "\n")) {
-					if (!(rand() % step)) fin << " \n";
+				if (stream << c && stream << "\n") {
+					if (!(rand() % step)) stream << " \n";
 					std::cout << "gen_double_tests: something went wrong!\n";
-					close_file();
+					stream.close_file();
 					return;
 				}
 			}
-			close_file();
+			stream.close_file();
 			++num_gen_files;
 		}
 	}
@@ -133,16 +174,17 @@ void gtest::GenTest::gen_double_tests() {
 void gtest::GenTest::gen_str_tests() {
 	int num_gen_files = 0;
 	for (int num = 0, amount_ = start_size; num < _string_tests_; ++num, amount_ += step) {
-		if (open_file(folderpath(str_folder, num))) {
+		MyStream stream;
+		if (stream.open_file(folderpath(str_folder, num))) {
 			std::string str_ = rand_string();
 			for (int i = 0; i < amount_; ++i, str_ = rand_string()) {
-				if (!(fin << str_ << "\n")) {
+				if (stream << str_ && stream << "\n") {
 					std::cout << "gen_str_tests: something went wrong!\n";
-					close_file();
+					stream.close_file();
 					return;
 				}
 			}
-			close_file();
+			stream.close_file();
 			++num_gen_files;
 		}
 	}

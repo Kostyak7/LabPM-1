@@ -11,9 +11,22 @@ void experiments::Test::run() {
 	start_str_test();
 }
 
-int experiments::Test::test_check(const int& result, const std::string& type_) {
-	if (result) std::cout << "\t" << type_ << " test failed\t - NO\n"; 
-	else std::cout << "\t" << type_ << " test passed\t - OK\n";
+void experiments::Test::async_run() {
+	boost::thread_group* tgroup = new boost::thread_group;
+	tgroup->create_thread(boost::bind(&experiments::Test::start_char_test, this));
+	tgroup->create_thread(boost::bind(&experiments::Test::start_int_test, this));
+	tgroup->create_thread(boost::bind(&experiments::Test::start_double_test, this));
+	async_start_str_test();
+
+	tgroup->join_all();
+
+	delete tgroup;
+	tgroup = nullptr;
+}
+
+int experiments::Test::test_check(const std::string& where_, const int& result, const std::string& type_) {
+	if (result) std::cout << where_ << "\t" << type_ << " test failed\t - NO\n"; 
+	else std::cout << where_ << "\t" << type_ << " test passed\t - OK\n";
 	return result;
 }
 
@@ -26,12 +39,12 @@ void experiments::Test::start_char_test() {
 		std::deque<char> deq = data::load_deque_char(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num));
 		std::list<char> list_ = data::load_list_char(gtest::GenTest::folderpath(gtest::GenTest::char_folder, num));
 
-		num_test += test_check(char_find_test(vec, deq, list_), "Find");
-		num_test += test_check(char_sort_test(vec, deq, list_), "Sort");
-		num_test += test_check(char_popF_test(vec, deq, list_), "PopF");
-		num_test += test_check(char_popB_test(vec, deq, list_), "PopB");
-		num_test += test_check(char_pushF_test(vec, deq, list_), "PushF");
-		num_test += test_check(char_pushB_test(vec, deq, list_), "PushB");
+		num_test += test_check("char", char_find_test(vec, deq, list_), "Find");
+		num_test += test_check("char", char_sort_test(vec, deq, list_), "Sort");
+		num_test += test_check("char", char_popF_test(vec, deq, list_), "PopF");
+		num_test += test_check("char", char_popB_test(vec, deq, list_), "PopB");
+		num_test += test_check("char", char_pushF_test(vec, deq, list_), "PushF");
+		num_test += test_check("char", char_pushB_test(vec, deq, list_), "PushB");
 	}
 	if (num_test) {
 		std::cout << "--Char tests failed!--\n";
@@ -48,12 +61,12 @@ void experiments::Test::start_int_test() {
 		std::deque<int> deq = data::load_deque_int(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num));
 		std::list<int> list_ = data::load_list_int(gtest::GenTest::folderpath(gtest::GenTest::int_folder, num));
 
-		num_test += test_check(int_find_test(vec, deq, list_), "Find");
-		num_test += test_check(int_sort_test(vec, deq, list_), "Sort");
-		num_test += test_check(int_popF_test(vec, deq, list_), "PopF");
-		num_test += test_check(int_popB_test(vec, deq, list_), "PopB");
-		num_test += test_check(int_pushF_test(vec, deq, list_), "PushF");
-		num_test += test_check(int_pushB_test(vec, deq, list_), "PushB");
+		num_test += test_check("int", int_find_test(vec, deq, list_), "Find");
+		num_test += test_check("int", int_sort_test(vec, deq, list_), "Sort");
+		num_test += test_check("int", int_popF_test(vec, deq, list_), "PopF");
+		num_test += test_check("int", int_popB_test(vec, deq, list_), "PopB");
+		num_test += test_check("int", int_pushF_test(vec, deq, list_), "PushF");
+		num_test += test_check("int", int_pushB_test(vec, deq, list_), "PushB");
 	}
 	if (num_test) {
 		std::cout << "--Int tests failed!--\n";
@@ -70,12 +83,12 @@ void experiments::Test::start_double_test() {
 		std::deque<double> deq = data::load_deque_double(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num));
 		std::list<double> list_ = data::load_list_double(gtest::GenTest::folderpath(gtest::GenTest::double_folder, num));
 
-		num_test += test_check(double_find_test(vec, deq, list_), "Find");
-		num_test += test_check(double_sort_test(vec, deq, list_), "Sort");
-		num_test += test_check(double_popF_test(vec, deq, list_), "PopF");
-		num_test += test_check(double_popB_test(vec, deq, list_), "PopB");
-		num_test += test_check(double_pushF_test(vec, deq, list_), "PushF");
-		num_test += test_check(double_pushB_test(vec, deq, list_), "PushB");
+		num_test += test_check("double", double_find_test(vec, deq, list_), "Find");
+		num_test += test_check("double", double_sort_test(vec, deq, list_), "Sort");
+		num_test += test_check("double", double_popF_test(vec, deq, list_), "PopF");
+		num_test += test_check("double", double_popB_test(vec, deq, list_), "PopB");
+		num_test += test_check("double", double_pushF_test(vec, deq, list_), "PushF");
+		num_test += test_check("double", double_pushB_test(vec, deq, list_), "PushB");
 	}
 	if (num_test) {
 		std::cout << "--Double tests failed!--\n";
@@ -92,12 +105,12 @@ void experiments::Test::start_str_test() {
 		std::deque<std::string> deq = data::load_deque_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
 		std::list<std::string> list_ = data::load_list_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
 
-		num_test += test_check(str_find_test(vec, deq, list_), "Find");
-		num_test += test_check(str_sort_test(vec, deq, list_), "Sort");
-		num_test += test_check(str_popF_test(vec, deq, list_), "PopF");
-		num_test += test_check(str_popB_test(vec, deq, list_), "PopB");
-		num_test += test_check(str_pushF_test(vec, deq, list_), "PushF");
-		num_test += test_check(str_pushB_test(vec, deq, list_), "PushB");
+		num_test += test_check("string", str_find_test(vec, deq, list_), "Find");
+		num_test += test_check("string", str_sort_test(vec, deq, list_), "Sort");
+		num_test += test_check("string", str_popF_test(vec, deq, list_), "PopF");
+		num_test += test_check("string", str_popB_test(vec, deq, list_), "PopB");
+		num_test += test_check("string", str_pushF_test(vec, deq, list_), "PushF");
+		num_test += test_check("string", str_pushB_test(vec, deq, list_), "PushB");
 	}
 	if (num_test) {
 		std::cout << "--String tests failed!--\n";
@@ -106,6 +119,37 @@ void experiments::Test::start_str_test() {
 	else std::cout << "--String tests success complete!--\n\n";
 }
 
+void experiments::Test::async_str_pushF_test(int& num_test, const std::vector<std::string>& vec, const std::deque<std::string>& deq, const	std::list<std::string>& list_) {
+	num_test += test_check("string", str_pushF_test(vec, deq, list_), "PushF");
+}
+
+void experiments::Test::async_start_str_test() {
+	std::cout << "Testing string containers...\n";
+	int num_test = 0;
+
+	for (int num = 0; std::ifstream(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num)); ++num) {
+		std::vector<std::string> vec = data::load_vector_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
+		std::deque<std::string> deq = data::load_deque_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
+		std::list<std::string> list_ = data::load_list_string(gtest::GenTest::folderpath(gtest::GenTest::str_folder, num));
+
+		boost::thread* thrd_ = new boost::thread(boost::bind(&experiments::Test::async_str_pushF_test, this, num_test, vec, deq, list_));
+		num_test += test_check("string", str_find_test(vec, deq, list_), "Find");
+		num_test += test_check("string", str_sort_test(vec, deq, list_), "Sort");
+		num_test += test_check("string", str_popF_test(vec, deq, list_), "PopF");
+		num_test += test_check("string", str_popB_test(vec, deq, list_), "PopB");
+		//num_test += test_check("string", str_pushF_test(vec, deq, list_), "PushF");
+		num_test += test_check("string", str_pushB_test(vec, deq, list_), "PushB");
+		thrd_->join();
+
+		delete thrd_;
+		thrd_ = nullptr;
+	}
+	if (num_test) {
+		std::cout << "--String tests failed!--\n";
+		std::cout << "\tFailed " << num_test << "/6 tests";
+	}
+	else std::cout << "--String tests success complete!--\n\n";
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 

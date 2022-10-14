@@ -4,6 +4,8 @@
 #include <vector>
 #include <deque>
 #include <list>
+#include <boost/bind.hpp>
+#include <boost/thread.hpp>
 
 #include "TimeLogger.h"
 #include "LabFunctions.h"
@@ -14,7 +16,7 @@ namespace experiments {
 
 	class Test {
 	private:
-		static int test_check(const int& result, const std::string& type_);
+		static int test_check(const std::string& where_, const int& result, const std::string& type_);
 
 		static int char_find_test(const std::vector<char>& vec, const std::deque<char>& deq,const	std::list<char>& list_);
 		static int char_sort_test(std::vector<char> vec, std::deque<char> deq, std::list<char> list_);
@@ -44,14 +46,17 @@ namespace experiments {
 		static int str_pushF_test(const std::vector<std::string>& vec, const std::deque<std::string>& deq, const  std::list<std::string>& list_);
 		static int str_pushB_test(const std::vector<std::string>& vec, const  std::deque<std::string>& deq, const  std::list<std::string>& list_);
 
+		void async_str_pushF_test(int& num_test, const std::vector<std::string>& vec, const std::deque<std::string>& deq, const	std::list<std::string>& list_);
 	public:
 		Test();
 
 		void run();
+		void async_run();
 		void start_char_test();
 		void start_int_test();
 		void start_double_test();
 		void start_str_test();
+		void async_start_str_test();
 	};
 
 }

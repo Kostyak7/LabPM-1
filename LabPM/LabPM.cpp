@@ -5,13 +5,15 @@
 
 int main(){
     srand(time(NULL));
-    tlog::TimeLogger::db_mode = 0;
+    tlog::TimeLogger::db_mode = 1;
 
     gtest::GenTest* gentest = new gtest::GenTest;
-    gentest->gen_tests();
+    gentest->async_gen_tests();
+    //gentest->gen_tests();
 
     experiments::Test* test = new experiments::Test;
-    test->run();
+    test->async_run();
+    //test->run();
 
     delete test;
     test = nullptr;

@@ -3,7 +3,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <boost/date_time.hpp>
 #include "sqlite3.h"
+
 
 namespace sqll {
 	struct LogTable {

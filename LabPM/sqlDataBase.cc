@@ -67,10 +67,11 @@ bool sqll::SQLdb::create_table(const std::string& table_name) {
 		type_ VARCHAR(30) NOT NULL,\
 		message_ VARCHAR(30)\
 		);";
-
-	if (check(sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg))) {
+	int res = 0;
+	if (res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg)) {
 		return 1;
 	}
+	if (zErrMsg != "database is locked") check(res);
 	//std::cout << "Table: " << table_name << " created successfully\n";
 	tables.push_back(table_name);
 	return 0;
@@ -81,9 +82,12 @@ bool sqll::SQLdb::insert(const std::string& table_name, size_t duration, int siz
 		"INSERT INTO " + table_name + "(duration, size, type_) "\
 		"VALUES(" + std::to_string(duration) +"," + std::to_string(size_) + ",'" + type_ + "');";
 
-	if (!check(sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg))) {
-		return 1;
+	int deep = 0, res = 0;
+	while (deep++ < 10000 && 5 == (res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg)) == 5) {
+		boost::posix_time::time_duration interval(boost::posix_time::milliseconds(rand() % 1000 + 10));
+		auto delay(interval);
 	}
+	check(res);
 	//std::cout << "Success insert in table: " << table_name << "\n";
 	return 0;
 }
@@ -93,9 +97,12 @@ bool sqll::SQLdb::insert(const std::string& table_name, size_t duration, int siz
 		"INSERT INTO " + table_name + "(duration, size, type_, message_)"\
 		"VALUES(" + std::to_string(duration) + "," + std::to_string(size_) + ",'" + type_ + "','" + message_ + "');";
 
-	if (!check(sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg))) {
-		return 1;
+	int deep = 0, res = 0;
+	while (deep++ < 10000 && 5 == (res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg))) {
+		boost::posix_time::time_duration interval(boost::posix_time::milliseconds(rand() % 1000 + 10));
+		auto delay(interval);
 	}
+	check(res);
 	//std::cout << "Success insert in table: " << table_name << "\n";
 	return 0;
 }

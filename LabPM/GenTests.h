@@ -6,21 +6,34 @@
 #include <string>
 #include <ctime>
 #include <cstdio>
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
 
 #include "TimeLogger.h"
 #include "sqlDataBase.h"
 
 namespace gtest {
+	class MyStream {
+	private:
+		std::ofstream fin;
+	public:
+		MyStream();
+		bool open_file(const std::string& path_name);
+		void close_file();
+
+		int operator<<(const char& element);
+		int operator<<(const int& element);
+		int operator<<(const double& element);
+		int operator<<(const std::string& element);
+	};
+
+
 	class GenTest {
 	private:
 		static const int start_size;
 		static const int step;
 		static std::string rand_string();
 		unsigned int _char_tests_, _int_tests_, _double_tests_, _string_tests_;
-		std::ofstream fin;
-
-		bool open_file(const std::string& path_name);
-		void close_file();
 
 		void gen_char_tests();
 		void gen_int_tests();
@@ -45,7 +58,7 @@ namespace gtest {
 		GenTest& string_tests(const unsigned int& num_tests);
 
 		void gen_tests();
-
+		void async_gen_tests();
 		unsigned int get_num_char() const;
 		unsigned int get_num_int() const;
 		unsigned int get_num_double() const;
