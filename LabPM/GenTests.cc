@@ -7,8 +7,8 @@ const std::string gtest::GenTest::int_folder = "int";
 const std::string gtest::GenTest::double_folder = "double";
 const std::string gtest::GenTest::str_folder = "string";
 
-const int gtest::GenTest::start_size = 1000;
-const int gtest::GenTest::step = 1000;
+const int gtest::GenTest::start_size = 100000;
+const int gtest::GenTest::step = 100000;
 
 std::string gtest::GenTest::folderpath(const std::string& folder_path, const int& num) {
 	return "test/" + folder_path + "/" + filename(num);
@@ -28,27 +28,27 @@ std::string gtest::GenTest::rand_string() {
 }
 
 gtest::GenTest::GenTest()
-	: _char_tests_(5), _int_tests_(5), _double_tests_(5), _string_tests_(5)
+	: _char_tests_(10), _int_tests_(10), _double_tests_(10), _string_tests_(10)
 {}
 
 gtest::GenTest& gtest::GenTest::char_tests(const unsigned int& num_tests) {
 	_char_tests_ = num_tests;
-	gen_char_tests();
+	//gen_char_tests();
 	return *this;
 }
 gtest::GenTest& gtest::GenTest::int_tests(const unsigned int& num_tests) {
 	_int_tests_ = num_tests;
-	gen_int_tests();
+	//gen_int_tests();
 	return *this;
 }
 gtest::GenTest& gtest::GenTest::double_tests(const unsigned int& num_tests) {
 	_double_tests_ = num_tests;
-	gen_double_tests();
+	//gen_double_tests();
 	return *this;
 }
 gtest::GenTest& gtest::GenTest::string_tests(const unsigned int& num_tests) {
 	_string_tests_ = num_tests;
-	gen_str_tests();
+	//gen_str_tests();
 	return *this;
 }
 
