@@ -1,6 +1,6 @@
 #include "TimeLogger.h"
 
-
+//////////////////////TimeLogger/////////////////////////////////////////////////////
 bool tlog::TimeLogger::db_mode = 0;
 
 std::string tlog::TimeLogger::csv(const std::string& _name) {
@@ -9,11 +9,11 @@ std::string tlog::TimeLogger::csv(const std::string& _name) {
 
 const std::string tlog::TimeLogger::db_name = "database.db";
 const std::string tlog::TimeLogger::find_name = "find_time";
- const std::string tlog::TimeLogger::sort_name = "sorting_time";
- const std::string tlog::TimeLogger::popF_name = "pop_front_time";
- const std::string tlog::TimeLogger::popB_name = "pop_back_time";
- const std::string tlog::TimeLogger::pushF_name = "push_front_time";
- const std::string tlog::TimeLogger::pushB_name = "push_back_time";
+const std::string tlog::TimeLogger::sort_name = "sorting_time";
+const std::string tlog::TimeLogger::popF_name = "pop_front_time";
+const std::string tlog::TimeLogger::popB_name = "pop_back_time";
+const std::string tlog::TimeLogger::pushF_name = "push_front_time";
+const std::string tlog::TimeLogger::pushB_name = "push_back_time";
 
 bool tlog::TimeLogger::open_file(const std::string& path_name) {
 	close_file();
@@ -34,6 +34,7 @@ void tlog::TimeLogger::close_file() {
 	if (fin.is_open()) fin.close();
 }
 
+
 tlog::TimeLogger::TimeLogger(const std::string& path_name)
 	:start_(std::chrono::high_resolution_clock::now()),
 	cur_name(path_name)
@@ -41,12 +42,6 @@ tlog::TimeLogger::TimeLogger(const std::string& path_name)
 	if (!db_mode) open_file(csv(path_name));
 	if (!db.is_open()) db.open_db(db_name);
 	db.create_table(path_name);
-}
-
-tlog::TimeLogger::TimeLogger()
-	:start_(std::chrono::high_resolution_clock::now())
-{
-	if (!db.is_open()) db.open_db(db_name);
 }
 
 tlog::TimeLogger::TimeLogger(const std::string& path_name, bool& is_open)

@@ -16,7 +16,8 @@ void experiments::Test::async_run() {
 	tgroup->create_thread(boost::bind(&experiments::Test::start_char_test, this));
 	tgroup->create_thread(boost::bind(&experiments::Test::start_int_test, this));
 	tgroup->create_thread(boost::bind(&experiments::Test::start_double_test, this));
-	async_start_str_test();
+	tgroup->create_thread(boost::bind(&experiments::Test::async_start_str_test, this));
+	//async_start_str_test();
 
 	tgroup->join_all();
 

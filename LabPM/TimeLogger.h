@@ -15,7 +15,6 @@ namespace tlog {
 		std::ofstream fin;
 		std::string cur_name;
 		std::chrono::steady_clock::time_point start_;
-		//size_t duration;
 
 		bool open_file(const std::string& path_name);
 		void close_file();
@@ -33,7 +32,6 @@ namespace tlog {
 		static const std::string pushF_name;
 		static const std::string pushB_name;
 		
-		TimeLogger();
 		TimeLogger(const std::string& path_name);
 		TimeLogger(const std::string& path_name, bool& is_open);
 

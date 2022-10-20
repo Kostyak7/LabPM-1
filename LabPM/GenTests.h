@@ -13,20 +13,6 @@
 #include "sqlDataBase.h"
 
 namespace gtest {
-	class MyStream {
-	private:
-		std::ofstream fin;
-	public:
-		MyStream();
-		bool open_file(const std::string& path_name);
-		void close_file();
-
-		int operator<<(const char& element);
-		int operator<<(const int& element);
-		int operator<<(const double& element);
-		int operator<<(const std::string& element);
-	};
-
 
 	class GenTest {
 	private:

@@ -1,5 +1,7 @@
 #include "sqlDataBase.h"
 
+boost::mutex mutex;
+
 int sqll::SQLdb::callback(void* data, int argc, char** argv, char** azColName) {
 	if (argc) {
 		std::vector<LogTable> &res = *((std::vector<LogTable>*)data);
@@ -80,13 +82,15 @@ bool sqll::SQLdb::create_table(const std::string& table_name) {
 bool sqll::SQLdb::insert(const std::string& table_name, size_t duration, int size_, const std::string& type_) {
 	std::string sql_request =
 		"INSERT INTO " + table_name + "(duration, size, type_) "\
-		"VALUES(" + std::to_string(duration) +"," + std::to_string(size_) + ",'" + type_ + "');";
+		"VALUES(" + std::to_string(duration) + "," + std::to_string(size_) + ",'" + type_ + "');";
 
-	int deep = 0, res = 0;
-	while (deep++ < 10000 && 5 == (res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg)) == 5) {
-		boost::posix_time::time_duration interval(boost::posix_time::milliseconds(rand() % 1000 + 10));
-		auto delay(interval);
+	int res = 5;
+	while (res == 5) {
+		while (!mutex.try_lock()) {}
+		res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg);
+		mutex.unlock();
 	}
+
 	check(res);
 	//std::cout << "Success insert in table: " << table_name << "\n";
 	return 0;
@@ -96,13 +100,13 @@ bool sqll::SQLdb::insert(const std::string& table_name, size_t duration, int siz
 	std::string sql_request =
 		"INSERT INTO " + table_name + "(duration, size, type_, message_)"\
 		"VALUES(" + std::to_string(duration) + "," + std::to_string(size_) + ",'" + type_ + "','" + message_ + "');";
-
-	int deep = 0, res = 0;
-	while (deep++ < 10000 && 5 == (res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg))) {
-		boost::posix_time::time_duration interval(boost::posix_time::milliseconds(rand() % 1000 + 10));
-		auto delay(interval);
+	int res = 5;
+	while (res == 5) {
+		while (!mutex.try_lock()) {}
+		res = sqlite3_exec(db, sql_request.c_str(), callback, 0, &zErrMsg);
+		mutex.unlock();
 	}
-	check(res);
+	if (5 == check(res)) std::cout << table_name << " " << type_ << "\n";
 	//std::cout << "Success insert in table: " << table_name << "\n";
 	return 0;
 }

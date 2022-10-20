@@ -3,11 +3,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <boost/date_time.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/thread/thread.hpp> 
+#include <boost/thread/mutex.hpp>
 #include "sqlite3.h"
 
 
 namespace sqll {
+
 	struct LogTable {
 		int id;
 		long long duration;
@@ -27,6 +30,7 @@ namespace sqll {
 
 		int check(int result);
 		static int callback(void* data, int argc, char** argv, char** azColName);
+
 	public:
 		SQLdb();
 		bool is_open();
