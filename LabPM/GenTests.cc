@@ -7,8 +7,8 @@ const std::string gtest::GenTest::int_folder = "int";
 const std::string gtest::GenTest::double_folder = "double";
 const std::string gtest::GenTest::str_folder = "string";
 
-const int gtest::GenTest::start_size = 100000;
-const int gtest::GenTest::step = 100000;
+const int gtest::GenTest::start_size = 10000;
+const int gtest::GenTest::step = 10000;
 
 std::string gtest::GenTest::folderpath(const std::string& folder_path, const int& num) {
 	return "test/" + folder_path + "/" + filename(num);
