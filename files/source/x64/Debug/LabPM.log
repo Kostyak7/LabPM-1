@@ -1,0 +1,8 @@
+﻿  GenTests.cc
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\packages\boost.1.80.0\lib\native\include\boost\bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(83,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(102,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(105,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(124,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(144,46): warning C4018: '<': signed/unsigned mismatch
+  LabPM.vcxproj -> C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\x64\Debug\LabPM.exe

@@ -1,4 +1,0 @@
-﻿  LabPM.cpp
-C:\Users\kosty\Documents\GitHub\LabPM-1\packages\boost.1.80.0\lib\native\include\boost\bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
-C:\Users\kosty\Documents\GitHub\LabPM-1\LabPM\LabPM.cpp(7,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  LabPM.vcxproj -> C:\Users\kosty\Documents\GitHub\LabPM-1\x64\Debug\LabPM.exe

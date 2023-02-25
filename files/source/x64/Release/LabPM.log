@@ -1,0 +1,109 @@
+﻿  GenTests.cc
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\packages\boost.1.80.0\lib\native\include\boost\bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(83,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(102,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(105,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(124,46): warning C4018: '<': signed/unsigned mismatch
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\GenTests.cc(144,46): warning C4018: '<': signed/unsigned mismatch
+  LabFunctions.cc
+  LabPM.cpp
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\packages\boost.1.80.0\lib\native\include\boost\bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\LabPM.cpp(7,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  sqlDataBase.cc
+  Test.cc
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\packages\boost.1.80.0\lib\native\include\boost\bind.hpp(41): message : The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace boost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(163,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(167,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(169,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(173,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(175,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(179,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(181,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(191,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(195,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(199,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(206,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(206,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(231,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(231,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(266,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(277,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(284,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(291,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(304,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(311,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(318,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(325,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(333,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(337,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(339,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(343,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(345,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(349,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(351,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(361,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(365,47): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(369,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(376,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(376,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(401,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(401,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(436,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(447,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(454,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(461,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(474,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(481,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(488,48): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(495,49): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(503,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(507,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(509,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(513,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(515,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(519,12): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(521,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(531,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(535,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(539,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(546,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(546,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(571,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(571,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(606,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(617,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(624,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(631,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(644,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(651,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(658,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(665,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(673,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(677,13): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(679,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(683,13): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(685,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(689,13): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(691,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(701,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(705,50): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(709,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(716,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(716,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(741,35): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(741,35): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(776,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(787,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(794,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(801,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(814,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(821,60): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(828,51): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\LabPM\Test.cc(835,52): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  TimeLogger.cc
+  sqlite3.c
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 4789 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  LabPM.vcxproj -> C:\Users\kosty\OneDrive\Документы\GitHub\LabPM-1\x64\Release\LabPM.exe
